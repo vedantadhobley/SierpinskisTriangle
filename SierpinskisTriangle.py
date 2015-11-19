@@ -10,12 +10,18 @@ t.hideturtle()
 ##t.tracer(0,0)
 ##s.delay(1000)
 s.tracer(0,0)
+s.colormode(255)
+t.color("black")
 
 def triangle(length):
    for i in range (0,3):
+      if color in ['y','Y','yes','Yes']:
+         t.color(random.randint(0,255),random.randint(0,255),random.randint(0,255))
       t.forward(length)
+      if update in ['L','l','Line','line']:
+         s.update()
       t.left(120)
-   if update in ['y','Y','yes','Yes']:
+   if update in ['T','t','Triangle','trianlge','Tri','tri']:
       s.update()
 
 def go(x,y):
@@ -59,7 +65,8 @@ def sierpinski (num,length):
 
 num=input("Enter number of recursions: ")
 length=input("Enter length of triangle: ")
-update=raw_input("Do you want to update per triangle?: ")
+update=raw_input("Do you want to update per line, triangle, or after completion?: ")
+color=raw_input("Do you want to vary colors?: ")
 t.up()
 t.back(length/2)
 t.right(90)
@@ -70,5 +77,6 @@ start_time=time.time()
 sierpinski(num,length)
 time=time.time()-start_time
 s.update()
-print("%f seconds required to make Sierpinski's Triangle to the %d degree and side length of %d"%(time,num,length),)
+print("%f seconds required to make Sierpinski's Triangle to the %d degree and side length of %d"%(time,num,length))
 ##print((time.time()-start_time),"seconds required to make Sierpinski's Triangle to the ",num," degree and side length of",length)
+input("Press Enter to continue...")
